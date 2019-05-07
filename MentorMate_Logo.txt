@@ -1,0 +1,61 @@
+using System;
+
+public class MM_Logo
+{
+	public static void Main()
+	{
+		//input check
+		int N = int.Parse(Console.ReadLine());
+		if (N < 3 || N > 9999 || N % 2 == 0)
+		{
+			Console.WriteLine("Invalid input");
+		}
+		else
+		{
+			int dashes = N;
+			int stars = N;
+			int dashes2 = N;
+			//first half of rows
+			for (int row = 0; row < (N + 1) / 2; row++)
+			{
+				Console.Write(new string ('-', dashes));
+				Console.Write(new string ('*', stars));
+				Console.Write(new string ('-', dashes2));
+				Console.Write(new string ('*', stars));
+				Console.Write(new string ('-', dashes * 2));
+				Console.Write(new string ('*', stars));
+				Console.Write(new string ('-', dashes2));
+				Console.Write(new string ('*', stars));
+				Console.Write(new string ('-', dashes));
+				Console.WriteLine();
+				dashes -= 1;
+				stars += 2;
+				dashes2 -= 2;
+			}
+
+			//second half of rows
+			stars = N;
+			dashes2 = 1;
+			for (int row = 0; row < (N + 1) / 2; row++)
+			{
+				Console.Write(new string ('-', dashes));
+				Console.Write(new string ('*', N));
+				Console.Write(new string ('-', dashes2));
+				Console.Write(new string ('*', (2 * stars) - 1));
+				Console.Write(new string ('-', dashes2));
+				Console.Write(new string ('*', N));
+				Console.Write(new string ('-', dashes * 2));
+				Console.Write(new string ('*', N));
+				Console.Write(new string ('-', dashes2));
+				Console.Write(new string ('*', (2 * stars) - 1));
+				Console.Write(new string ('-', dashes2));
+				Console.Write(new string ('*', N));
+				Console.Write(new string ('-', dashes));
+				Console.WriteLine();
+				dashes -= 1;
+				dashes2 += 2;
+				stars -= 1;
+			}
+		}
+	}
+}
